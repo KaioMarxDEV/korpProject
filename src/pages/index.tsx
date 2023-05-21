@@ -11,7 +11,6 @@ import SizeDown from '../components/SizeDown';
 import SlideLeft from '../components/SlideLeft';
 
 interface Data {
-    name: string;
     email: string;
 }
 
@@ -113,7 +112,7 @@ export default function Home() {
                                     before:animate-spin-slow
                                 '
                             >
-                                <Sent backToMain={backToMainComponent} />
+                                <Sent qrData={data} backToMain={backToMainComponent} />
                             </div>
                         </SizeDown>
                     )}

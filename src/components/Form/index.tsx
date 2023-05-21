@@ -6,8 +6,7 @@ import { toast } from 'react-toastify';
 import * as z from 'zod';
 
 const NewSchema = z.object({
-    name: z.string(),
-    email: z.string().email("Email precisa ser valido."),
+    email: z.string().email(),
 })
 
 type NewInputs = z.infer<typeof NewSchema>
@@ -68,29 +67,23 @@ export default function FormWrapper({ changeMainComponent, setNewSubmit }: FormW
                 </span>
             </div>
 
-            <div className="mt-8 mb-10 flex flex-col gap-6">
+            <div className="mt-8 mb-16 flex flex-col gap-1">
+                <label className='text-xl font-bold' htmlFor="email">Email:</label>
                 <input
                     autoComplete='false'
-                    placeholder="Ex: seu nome..."
-                    className="placeholder:text-slate-400 p-2 text-lg bg-slate-900 text-slate-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 shadow-md shadow-black"
-                    type="text"
-                    required
-                    {...register("name")}
-                />
-                <input
-                    autoComplete='false'
-                    placeholder="Ex: email@email.com"
+                    placeholder="email@email.com"
                     className="placeholder:text-slate-400 p-2 text-lg bg-slate-900 text-slate-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 shadow-md shadow-black"
                     type="text"
                     required
                     {...register("email")}
                 />
+
             </div>
             <button type="submit" disabled={isSubmitting} className="flex items-center justify-center p-4 font-mono hover:bg-violet-800 bg-violet-700 text-xl rounded-xl transition-all ease-linear delay-75 duration-300">
                 {
                     isSubmitting
                         ? <SpinnerGap className='animate-spin' size={32} />
-                        : "Enviar"
+                        : "Criar"
                 }
             </button>
         </form>

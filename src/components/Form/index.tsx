@@ -67,7 +67,7 @@ export default function FormWrapper({ changeMainComponent, setNewSubmit }: FormW
                 </span>
             </div>
 
-            <div className="mt-8 mb-16 flex flex-col gap-1">
+            <div className="mt-4 mb-16 flex flex-col gap-1">
                 <label className='text-xl font-bold' htmlFor="email">Email:</label>
                 <input
                     autoComplete='false'

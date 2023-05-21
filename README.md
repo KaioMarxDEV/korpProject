@@ -1,4 +1,4 @@
-# See the project in production: [PayTour](https://payout-challenge.vercel.app/).
+# See the project in production: [Korp QR Code](https://korp-kaiomarxdev.vercel.app/).
 
 ## Getting Started
 

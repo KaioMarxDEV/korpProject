@@ -21,16 +21,16 @@ export default function Home() {
     <>
         <ToastContainer />
         <Head>
-        <title>Korp Project</title>
-        <meta name="description" content="Form for Resume Applications" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>Korp Project</title>
+            <meta name="description" content="QR Code generator" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <main className="container mx-auto">
         <div className='flex justify-between flex-col items-center p-20 min-h-screen'>
 
             {/* Header */}
             <SlideLeft>
-            <Header />
+                <Header />
             </SlideLeft>
 
             {/* Form */}

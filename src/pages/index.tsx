@@ -21,7 +21,7 @@ export default function Home() {
     <>
         <ToastContainer />
         <Head>
-        <title>Paytour Resume Application</title>
+        <title>Korp Project</title>
         <meta name="description" content="Form for Resume Applications" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>

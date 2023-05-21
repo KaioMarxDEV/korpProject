@@ -60,7 +60,7 @@ export default function FormWrapper({ changeMainComponent, setNewSubmit }: FormW
             <div className='flex flex-col items-center'>
                 <FileText size={60} />
                 <h1 className='mt-4 text-2xl font-bold text-white '>
-                    Formulário de Aplicação
+                    Formulário de dados
                 </h1>
                 <span className='mt-1 text-xl'>
                     digite as informações para incluir no <span className='underline underline-offset-2 font-semibold'>QR Code</span>

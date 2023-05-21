@@ -5,18 +5,19 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import * as z from 'zod';
 
-const NewCurriculumSchema = z.object({
+const NewSchema = z.object({
     name: z.string(),
     email: z.string().email("Email precisa ser valido."),
 })
 
-type NewCurriculumInputs = z.infer<typeof NewCurriculumSchema>
+type NewInputs = z.infer<typeof NewSchema>
 
 type FormWrapperProps = {
-    changeMainComponent: () => void
+    changeMainComponent: () => void,
+    setNewSubmit: (data: NewInputs) => void
 }
 
-export default function FormWrapper({ changeMainComponent }: FormWrapperProps) {
+export default function FormWrapper({ changeMainComponent, setNewSubmit }: FormWrapperProps) {
     const {
         register,
         handleSubmit,
@@ -25,13 +26,13 @@ export default function FormWrapper({ changeMainComponent }: FormWrapperProps) {
             isSubmitting,
             isSubmitSuccessful
         }
-    } = useForm<NewCurriculumInputs>({
-        resolver: zodResolver(NewCurriculumSchema)
+    } = useForm<NewInputs>({
+        resolver: zodResolver(NewSchema)
     })
 
-    async function onNewCurriculumSubmit(data: NewCurriculumInputs) {
+    async function onNewSubmit(data: NewInputs) {
         try {
-            console.log(data)
+            setNewSubmit(data)
 
             reset()
         } catch (error: any) {
@@ -56,7 +57,7 @@ export default function FormWrapper({ changeMainComponent }: FormWrapperProps) {
     }, [isSubmitSuccessful])
 
     return (
-        <form onSubmit={handleSubmit(onNewCurriculumSubmit)} className='flex flex-col gap-3 bg-slate-700 py-10 px-20 rounded-xl'>
+        <form onSubmit={handleSubmit(onNewSubmit)} className='flex flex-col gap-3 bg-slate-700 py-10 px-20 rounded-xl'>
             <div className='flex flex-col items-center'>
                 <FileText size={60} />
                 <h1 className='mt-4 text-2xl font-bold text-white '>
@@ -88,8 +89,8 @@ export default function FormWrapper({ changeMainComponent }: FormWrapperProps) {
             <button type="submit" disabled={isSubmitting} className="flex items-center justify-center p-4 font-mono hover:bg-violet-800 bg-violet-700 text-xl rounded-xl transition-all ease-linear delay-75 duration-300">
                 {
                     isSubmitting
-                    ? <SpinnerGap className='animate-spin' size={32} />
-                    : "Enviar"
+                        ? <SpinnerGap className='animate-spin' size={32} />
+                        : "Enviar"
                 }
             </button>
         </form>

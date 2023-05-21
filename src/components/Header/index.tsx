@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import paytour from '../../../public/logo-paytour.svg'
+import korp from '../../../public/logo_korp.png'
 
 export default function Header () {
     return (
@@ -27,13 +27,13 @@ export default function Header () {
             '
           >
             <div className='z-50 flex items-center gap-4'>
-              <Image className='max-w-full' id="image" alt="Paytour" src={paytour} />
+              <Image className='max-w-full saturate-100' id="image" alt="Paytour" src={korp} />
 
               {/* Separator */}
               <div className='h-14 w-0.5 bg-violet-600' />
               
-              <h1 className='text-3xl font-bold text-white'>
-                Envío de Currículo
+              <h1 className='text-3xl saturate-100 font-bold text-white'>
+                Gerador de QR Code
               </h1>
             </div>
         </header>
